@@ -182,3 +182,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         conn.close()
         logger.info('Connection to client closed')
 logger.info('Connection closed, terminating.')
+
+# python whisper_online.py audio.wav --min-chunk-size 1 --model tiny.en --model_cache_dir model_cache/ --task transcribe --backend faster-whisper
+
+# python whisper_online_server.py --min-chunk-size 1 --model tiny.en --model_cache_dir model_cache/ --task transcribe --backend faster-whisper
+# download https://sourceforge.net/projects/sox/
+# sox -t waveaudio default -b 16 -c 1 -r 16000 -e signed-integer -t raw - | ncat localhost 43007
